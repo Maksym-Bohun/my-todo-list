@@ -1,0 +1,414 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2d3033;
+  font-family: "Roboto", sans-serif;
+  height: 97vh;
+}
+
+html {
+  font-size: 62.5%;
+  position: relative;
+}
+
+main {
+  background-color: #424547;
+  width: 50%;
+  padding: 3rem 4rem;
+  margin: 2rem auto;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.main-section {
+  background-color: #424547;
+  width: 45%;
+  padding: 4rem 5rem;
+  margin: 2rem auto;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.remove-notification-window {
+  position: absolute;
+  background-color: #6c6e70;
+  top: 50vh;
+  right: 50vw;
+  padding: 4.5rem 9rem;
+  transform: translate(50%, -50%);
+  border-radius: 11px;
+  opacity: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.notification-btn {
+  padding: 1.5rem 3rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  border: none;
+  transition: all 0.3s;
+}
+
+.notification-btn:hover {
+  transform: scale(105%);
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.header {
+  color: #dde4e7;
+  display: flex;
+  font-size: 3.2rem;
+  justify-content: center;
+}
+
+.new-todo-icon,
+.remove-todo-icon {
+  font-size: 2.4rem;
+}
+
+.todo-btn {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  width: 20rem;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  background-color: #aa4b41;
+  color: #dde4e7;
+  padding: 1rem 0;
+  border-radius: 9px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.todo-btn:hover {
+  box-shadow: inset 20rem 0 0 0 #662d27;
+  cursor: pointer;
+}
+
+.add-reminder-btn:hover {
+  box-shadow: inset -20rem 0 0 0 #662d27;
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.submit-btn,
+.submit-reminder-btn {
+  background-color: #aa4b41;
+  border: none;
+  border-radius: 9px;
+  font-size: 2.4rem;
+  color: #dde4e7;
+  padding: 1rem 2rem;
+  margin-right: 1.4rem;
+  transition: all 0.4s;
+}
+
+.submit-btn:hover {
+  box-shadow: inset 0 6rem 0 0 #662d27;
+  cursor: pointer;
+}
+
+.current-todo-list {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+}
+
+.current-todo,
+.add-todo,
+.add-reminder {
+  color: #dde4e7;
+  align-items: center;
+  font-size: 2.2rem;
+  background-color: #2d3033;
+  margin: 1rem auto;
+  width: 60rem;
+  padding: 4rem 1rem;
+  border-radius: 12px;
+}
+
+.current-todo {
+  display: grid;
+  grid-template-columns: 1fr 5fr 4fr;
+  gap: 1rem;
+}
+
+.completed-todo {
+  animation: completedTodo 1s 1;
+}
+
+@keyframes completedTodo {
+  0% {
+    /* opacity: 100%; */
+    border: #000 1px solid;
+  }
+
+  70% {
+    transform: translateX(-80%);
+    border: #000 1px solid;
+  }
+
+  100% {
+    transform: translateX(100%) scaleX(0%);
+    border: #000 1px solid;
+  }
+}
+
+.checker {
+  height: 3rem;
+  width: 3rem;
+  background-color: #dde4e7;
+  border: solid 3px #000;
+  border-radius: 7px;
+  justify-self: center;
+}
+
+.checker:hover {
+  cursor: pointer;
+}
+
+.checker-filled {
+  position: relative;
+}
+
+.checker-filled::after {
+  content: url("check.svg");
+  position: absolute;
+  transform: translate(-32%, -10%);
+}
+
+.todo-deadline {
+  font-size: 1.4rem;
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border: 3px solid #2f9e44;
+  border-radius: 9px;
+  width: 80%;
+}
+
+.reminder > .todo-deadline {
+  background-color: #969899;
+  color: #000;
+  border: none;
+}
+
+.late {
+  border-color: #e03131;
+}
+
+.date {
+  justify-self: end;
+}
+
+.details-header {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.reminder .details-header,
+.reminder .date {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.todo-active {
+  transform: scale(101%);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.todo,
+.reminder {
+  position: relative;
+  transition: all 0.3s;
+  transition: translateX(-50%) 3s;
+}
+
+.reminder {
+  color: #ced4da;
+  align-items: center;
+  font-size: 2.2rem;
+  background-color: #242629;
+  margin: 1rem auto;
+  width: 60rem;
+  padding: 4rem 1rem;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s;
+  transition: translateX(-50%) 3s;
+}
+
+.reminder-event {
+  grid-column: 1/3;
+  margin: 0 7rem;
+}
+
+.close-btn,
+.reminder-close-btn {
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  top: 2.3rem;
+  right: 0.6rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.ph-x-circle {
+  font-size: 2.8rem;
+}
+
+.trash-icon {
+  font-size: 3rem;
+  align-self: center;
+  transition: all 0.4s;
+}
+
+.trash-icon:hover {
+  color: #aa4b41;
+  cursor: pointer;
+}
+
+/**********************Adding todo ***********************/
+
+.add-todo,
+.add-reminder {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  /* position: relative; */
+}
+
+.add-reminder {
+  background: #a0a1a2;
+  color: #2d3033;
+  font-weight: 500;
+}
+
+.add-reminder .task-input,
+.add-reminder .date-time-input {
+  background-color: #424547;
+  color-scheme: dark;
+}
+
+.submit-reminder-btn {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.submit-reminder-btn:hover {
+  box-shadow: inset 0 6rem 0 0 #662d27;
+  cursor: pointer;
+  color: #fff;
+}
+
+.add-reminder .task-input::placeholder {
+  color: #ced4da;
+}
+
+.add-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.add-task,
+.add-deadline {
+  display: grid;
+  grid-template-columns: 11rem 24rem 2rem;
+  gap: 2rem;
+  margin-left: 2rem;
+  align-items: center;
+}
+
+.warning {
+  /* border: px solid #e03131; */
+  box-shadow: 0 0 0 2px #e03131;
+}
+
+.task-input,
+.date-time-input,
+.event-time-input,
+.event-input {
+  background-color: #c6c7c8;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.8rem;
+  width: 24rem;
+}
+
+.task-input::placeholder {
+  color: #14151580;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+.todo-hidden {
+  transform: translateX(-80%);
+  opacity: 0;
+}
+
+.move-left {
+  /* -webkit-transform: translate(50px, 50px); */
+  transform: translate(-50rem, 0);
+  transition: all 0.3s;
+}
+
+.scroll-list {
+  overflow-y: auto;
+  max-height: 50rem;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #36383a;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="icons/logo.svg" />
+  </head>
+
+  <body>
+    <main>
+      <div>
+        <h1 class="header">Todo list</h1>
+      </div>
+      <div class="buttons">
+        <button class="todo-btn add-todo-btn">
+          <img
+            src="icons/plus-circle.svg"
+            class="ph-plus-circle new-todo-icon"
+          /><span>Add todo</span>
+        </button>
+        <button class="todo-btn add-reminder-btn">
+          <img
+            src="icons/bell-ringing.svg"
+            class="ph-x-circle remove-todo-icon"
+          /><span>Add reminder</span>
+        </button>
+      </div>
+
+      <div class="current-todo-list">
+        <div class="add-todo hidden todo">
+          <div class="add-inputs">
+            <div class="add-task">
+              <p class="todo-task">Task</p>
+              <input
+                type="text"
+                placeholder="Do my homework"
+                class="task-input"
+              />
+              <img src="icons/warning.svg" class="task-warning-icon hidden" />
+            </div>
+
+            <div class="add-deadline">
+              <p class="todo-task">Deadline</p>
+              <input type="datetime-local" class="date-time-input" />
+              <img
+                src="icons/warning.svg"
+                class="deadline-warning-icon hidden"
+              />
+            </div>
+          </div>
+
+          <button class="submit-btn">Submit</button>
+          <div class="close-btn">
+            <img src="icons/x-circle.svg" />
+          </div>
+        </div>
+
+        <div class="add-todo todo hidden todo-hidden">
+          <div class="add-inputs">
+            <div class="add-task">
+              <p class="todo-task">Event</p>
+              <input type="text" placeholder="Christmas" class="task-input" />
+              <img src="icons/warning.svg" class="task-warning-icon hidden" />
+            </div>
+
+            <div class="add-deadline">
+              <p class="todo-task">Time</p>
+              <input type="datetime-local" class="date-time-input" />
+              <img
+                src="icons/warning.svg"
+                class="deadline-warning-icon hidden"
+              />
+            </div>
+          </div>
+
+          <button class="submit-btn">Submit</button>
+          <div class="close-btn">
+            <img src="icons/x-circle.svg" />
+          </div>
+        </div>
+
+        <div class="add-reminder todo hidden todo-hidden">
+          <div class="add-inputs">
+            <div class="add-task">
+              <p class="todo-task">Event</p>
+              <input type="text" placeholder="Christmas" class="event-input" />
+              <img src="icons/warning.svg" class="task-warning-icon hidden" />
+            </div>
+
+            <div class="add-deadline">
+              <p class="todo-task">Time</p>
+              <input type="datetime-local" class="event-time-input" />
+              <img
+                src="icons/warning.svg"
+                class="deadline-warning-icon hidden"
+              />
+            </div>
+          </div>
+
+          <button class="submit-reminder-btn">Submit</button>
+          <div class="close-btn">
+            <img src="icons/x-circle-black.svg" />
+          </div>
+        </div>
+
+        <div class="todo-list">
+          <!-- <div class="current-todo todo .comple">
+            <div class="checker checker-filled">&nbsp;</div>
+            <p class="todo-task">Do my homework</p>
+
+            <div class="todo-deadline">
+              <p class="details-header">Deadline</p>
+              <p class="date">Aug 31 2017 18:00</p>
+            </div>
+
+            <div class="close-btn hidden"><i class="ph-x-circle"></i></div>
+          </div> -->
+
+          <!-- <div class="current-todo todo">
+            <div class="checker">&nbsp;</div>
+            <p class="todo-task">Walk with dog</p>
+
+            <div class="todo-deadline late">
+              <p class="details-header">Deadline</p>
+              <p class="date">Nov 4 2022 6:30</p>
+            </div>
+
+            <div class="close-btn hidden"><i class="ph-x-circle"></i></div>
+          </div> -->
+
+          <!-- <div class="current-todo todo">
+            <div class="checker">&nbsp;</div>
+            <p class="todo-task">Do my homework</p>
+
+            <div class="todo-deadline">
+              <p class="details-header">Deadline</p>
+              <p class="date">Aug 31 2017 18:00</p>
+            </div>
+            <div class="close-btn hidden"><i class="ph-x-circle"></i></div>
+          </div> -->
+        </div>
+      </div>
+    </main>
+
+    <div class="overlay hidden">
+      <div class="remove-notification-window">
+        <button class="notification-btn">Remove notification</button>
+      </div>
+    </div>
+  </body>
+
+  <script src="script.js"></script>
+</html>
